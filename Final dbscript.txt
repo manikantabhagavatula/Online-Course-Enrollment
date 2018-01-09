@@ -1,0 +1,73 @@
+create database manidb;
+use manidb;
+create table role(
+roleId varchar(5)primary key,
+Rolename varchar(20)
+);
+insert into role values("1","admin");
+insert into role values("2","student");
+
+
+
+create table users(
+userId int primary key auto_increment,
+username varchar(20),
+Password varchar(20),
+roleId varchar(5),
+constraint fk_userrole foreign key (roleId) references role(roleId)
+);
+insert into users values(100,"sai","pass","1");
+insert into users values(1001,"manidb","pass","2");
+insert into users(username,Password,roleId) values("krish","pass","2");
+insert into users(username,Password,roleId) values("pishj","pass","2");
+insert into users(username,Password,roleId) values("rahul","pass","2");
+
+create table Dept(
+deptId int primary key,
+deptname varchar(20)
+);
+
+
+insert into Dept values(1001,'Com Science');
+insert into Dept values(1002, 'Info Techn');
+select * from Dept;
+
+
+create table Professor(
+profId int primary key auto_increment,
+profname varchar(20),
+Deptid int references Dept(deptid)
+);
+
+
+insert into Professor (profname,Deptid) values('Kim',1001);
+insert into Professor (profname,Deptid) values('Jim',1002);
+
+
+create table Course(
+courseId int primary key auto_increment,
+coursename varchar(20),
+profid int references Professor(profId)
+);
+
+
+
+
+insert into Course (courseId,coursename,profid) values(6001,'SPL',5001);
+insert into Course (coursename,profid) values('SSDI',5002);
+
+
+
+
+create table Stud_course(
+studId varchar(5) references Student(StudId),
+courseId varchar(5) references Course(courseId),
+constraint pk_studid primary key(studId,courseId));
+
+
+insert into Stud_course values (1001,6001);
+
+
+
+
+

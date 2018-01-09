@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context path="/Nbad_Project3">
+  <Resource auth="Container" driverClassName="com.mysql.jdbc.Driver" logAbandoned="true" maxActive="100" maxIdle="30" maxWait="10000" name="jdbc/projectdb" password="12345678" removeAbandoned="true" removeAbandonedTimeout="60" type="javax.sql.DataSource" url="jdbc:mysql://mbhagava.cgbjaz9rigxo.us-west-2.rds.amazonaws.com:3306/manidb" username="manidb"/>
+</Context>
+
+
